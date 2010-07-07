@@ -99,6 +99,18 @@ class Wb_relative_date{
 	
 	public function usage()
 	{
+		ob_start(); 
+		?>
 		
+		Given a date (preferably a timestamp) it returns a relative date (e.g. 2 days ago).
+		
+		Example Usage
+		-------------
+		{exp:wb_relative_date}{entry_date}{/exp:wb_relative_date}
+		
+		<?php
+		$buffer = ob_get_contents();
+		ob_end_clean(); 
+		return $buffer;
 	}
 }
