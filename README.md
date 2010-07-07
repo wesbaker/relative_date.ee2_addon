@@ -1,4 +1,4 @@
-WB Freeform Campaign Monitor
+WB Relative Date
 ============================
 
 **Date:** 2010-07-07<br />
@@ -14,3 +14,4 @@ Given a date (preferably a timestamp) it returns a relative date (e.g. 2 days ag
 Usage
 --------
 
+	{exp:wb_relative_date}{entry_date}{/exp:wb_relative_date}
