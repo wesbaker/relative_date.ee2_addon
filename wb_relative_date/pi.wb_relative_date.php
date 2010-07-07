@@ -32,7 +32,6 @@ class Wb_relative_date{
 		$date = $this->EE->TMPL->tagdata;
 		
 		$this->return_data = $this->_relative_time($date);
-		var_dump($this->return_data);
 	}
 	
 	private function _relative_time($date) {
