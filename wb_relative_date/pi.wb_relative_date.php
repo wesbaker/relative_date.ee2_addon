@@ -2,7 +2,7 @@
 
 $plugin_info = array(
 	'pi_name' => 'WB Relative Date',
-	'pi_version' => '1.0.0',
+	'pi_version' => '1.0.1',
 	'pi_author' => 'Wes Baker',
 	'pi_author_url' => 'http://wesbaker.com',
 	'pi_description' => 'Convert normal dates into relative dates (e.g. about 2 days ago)',
@@ -15,7 +15,7 @@ $plugin_info = array(
  * Get a relative date
  *
  * @package			WBRelativeDate
- * @version			1.0.0
+ * @version			1.0.1
  * @author			Wes Baker <http://wesbaker.com>
  * @license 		Creative Commons Attribution Non-Commercial Share Alike
  */
@@ -29,7 +29,7 @@ class Wb_relative_date{
 	{
 		$this->EE =& get_instance();
 
-		$date = $this->EE->TMPL->tagdata;
+		$date = trim($this->EE->TMPL->tagdata);
 		
 		$this->return_data = $this->_relative_time($date);
 	}
