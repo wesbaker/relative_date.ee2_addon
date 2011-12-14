@@ -28,6 +28,4 @@ CVS.adm
 RCS
 RCSLOG
 SCCS
-_$*
-.project
-.gitignore
+_$*.DS_Store
