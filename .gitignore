@@ -29,3 +29,5 @@ RCS
 RCSLOG
 SCCS
 _$*
+.project
+.gitignore
