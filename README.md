@@ -6,6 +6,14 @@ WB Relative Date
 **Mail:** wes@wesbaker.com<br />
 **Web:** [http://wesbaker.com](http://wesbaker.com/)
 
+Localization
+------------
+**Date:** 2011-12-13<br />
+**Author:** Arachnos (Etienne SOTTAS)<br />
+**Mail:** arachnos@creative-tarentula.net<br />
+**Twitter:** [http://twitter.com/Arachnos](http://twitter.com/Arachnos)<br />
+**Web:** [http://www.creative-tarentula.net](http://www.creative-tarentula.net)
+
 What it Does
 ------------
 

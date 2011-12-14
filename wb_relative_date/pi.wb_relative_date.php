@@ -1,5 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+// include config file
+include PATH_THIRD.'wb_relative_date/config'.EXT;
+
 $plugin_info = array(
 	'pi_name' => 'WB Relative Date',
 	'pi_version' => '1.0.1',
@@ -35,60 +38,62 @@ class Wb_relative_date{
 	}
 	
 	private function _relative_time($date) {
+		
 		$valid_date = (is_numeric($date) && strtotime($date) === FALSE) ? $date : strtotime($date);
 		$diff = time() - $valid_date;
+		load_language($diff,$valid_date);
 		if ($diff > 0) {
 			if ($diff < 60) {
-				return $diff . " second" . $this->_plural($diff) . " ago";
+				return $this->EE->lang->line('wb_relative_second');
 			}
 			$diff = round($diff / 60);
 			
 			if ($diff < 60) {
-				return $diff . " minute" . $this->_plural($diff) . " ago";
+				return $this->EE->lang->line('wb_relative_minute');
 			}
 			$diff = round($diff / 60);
 			
 			if ($diff < 24) {
-				return $diff . " hour" . $this->_plural($diff) . " ago";
+				return $this->EE->lang->line('wb_relative_hour');
 			}
 			$diff = round($diff / 24);
 			
 			if ($diff < 7) {
-				return "about " . $diff . " day" . $this->_plural($diff) . " ago";
+				return $this->EE->lang->line('wb_relative_day');
 			}
 			$diff = round($diff / 7);
 			
 			if ($diff < 4) {
-				return "about " . $diff . " week" . $this->_plural($diff) . " ago";
+				return $this->EE->lang->line('wb_relative_week');
 			}
 			
 			return "on " . date("F j, Y", strtotime($valid_date));
 		} else {
 			if ($diff > -60) {
-				return "in " . -$diff . " second" . $this->_plural($diff);
+				return $this->EE->lang->line('wb_relative_in_second');
 			}
 			$diff = round($diff / 60);
 			
 			if ($diff > -60) {
-				return "in " . -$diff . " minute" . $this->_plural($diff);
+				return $this->EE->lang->line('wb_relative_in_minute');
 			}
 			$diff = round($diff / 60);
 			
 			if ($diff > -24) {
-				return "in " . -$diff . " hour" . $this->_plural($diff);
+				return $this->EE->lang->line('wb_relative_in_hour');
 			}
 			$diff = round($diff / 24);
 			
 			if ($diff > -7) {
-				return "in " . -$diff . " day" . $this->_plural($diff);
+				return $this->EE->lang->line('wb_relative_in_day');
 			}
 			$diff = round($diff / 7);
 			
 			if ($diff > -4) {
-				return "in " . -$diff . " week" . $this->_plural($diff);
+				return $this->EE->lang->line('wb_relative_in_week');
 			}	
 			
-			return "on " . date("F j, Y", strtotime($valid_date));
+			return $this->EE->lang->line('wb_relative_date');
 		}
 	}
 
