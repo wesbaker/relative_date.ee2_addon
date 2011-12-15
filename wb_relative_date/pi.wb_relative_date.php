@@ -36,6 +36,41 @@ class Wb_relative_date{
 		
 		$this->return_data = $this->_relative_time($date);
 	}
+	private function in_object($val, $obj){
+
+    if($val == ""){
+        trigger_error("in_object expects parameter 1 must not empty", E_USER_WARNING);
+        return false;
+    }
+    if(!is_object($obj)){
+        $obj = (object)$obj;
+    }
+
+    foreach($obj as $key => $value){
+        if(!is_object($value) && !is_array($value)){
+            if($value == $val){
+                return true;
+            }
+        }else{
+            return in_object($val, $value);
+        }
+    }
+    return false;
+	}
+	private function load_language($diff) {
+ 		$accepted_languages = array("en" => "english", "fr" => "french");
+	 foreach($obj as $key => $value){
+	 	$short_lang = $key;
+		$lang_dir = $value;
+	 }
+	 if(strlen($this->EE->config->item("site_short_name")) == 2 || in_object($this->EE->config->item("site_short_name"),$accepted_languages)) {
+		$language = $this->EE->config->item("site_short_name");
+	 } else {
+	 	$language = explode(';',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
+		$language = $lang[1];
+	 }
+ 		include PATH_THIRD.'wb_relative_date/language/'.$lang_dir.'/lang.wb_relative_date.php';
+ 	}
 	
 	private function _relative_time($date) {
 		
@@ -44,56 +79,56 @@ class Wb_relative_date{
 		load_language($diff,$valid_date);
 		if ($diff > 0) {
 			if ($diff < 60) {
-				return $this->EE->lang->line('wb_relative_second');
+				return $this->lang('wb_relative_second');
 			}
 			$diff = round($diff / 60);
 			
 			if ($diff < 60) {
-				return $this->EE->lang->line('wb_relative_minute');
+				return $this->lang('wb_relative_minute');
 			}
 			$diff = round($diff / 60);
 			
 			if ($diff < 24) {
-				return $this->EE->lang->line('wb_relative_hour');
+				return $this->lang('wb_relative_hour');
 			}
 			$diff = round($diff / 24);
 			
 			if ($diff < 7) {
-				return $this->EE->lang->line('wb_relative_day');
+				return $this->lang('wb_relative_day');
 			}
 			$diff = round($diff / 7);
 			
 			if ($diff < 4) {
-				return $this->EE->lang->line('wb_relative_week');
+				return $this->lang('wb_relative_week');
 			}
 			
 			return "on " . date("F j, Y", strtotime($valid_date));
 		} else {
 			if ($diff > -60) {
-				return $this->EE->lang->line('wb_relative_in_second');
+				return $this->lang('wb_relative_in_second');
 			}
 			$diff = round($diff / 60);
 			
 			if ($diff > -60) {
-				return $this->EE->lang->line('wb_relative_in_minute');
+				return $this->lang('wb_relative_in_minute');
 			}
 			$diff = round($diff / 60);
 			
 			if ($diff > -24) {
-				return $this->EE->lang->line('wb_relative_in_hour');
+				return $this->lang('wb_relative_in_hour');
 			}
 			$diff = round($diff / 24);
 			
 			if ($diff > -7) {
-				return $this->EE->lang->line('wb_relative_in_day');
+				return $this->lang('wb_relative_in_day');
 			}
 			$diff = round($diff / 7);
 			
 			if ($diff > -4) {
-				return $this->EE->lang->line('wb_relative_in_week');
+				return $this->lang('wb_relative_in_week');
 			}	
 			
-			return $this->EE->lang->line('wb_relative_date');
+			return $this->lang('wb_relative_date');
 		}
 	}
 
