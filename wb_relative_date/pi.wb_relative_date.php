@@ -58,56 +58,56 @@ class Wb_relative_date{
 		load_language($diff,$valid_date);
 		if ($diff > 0) {
 			if ($diff < 60) {
-				return $lang['wb_relative_second'];
+				return lang('wb_relative_second');
 			}
 			$diff = round($diff / 60);
 			
 			if ($diff < 60) {
-				return $lang['wb_relative_minute'];
+				return lang('wb_relative_minute');
 			}
 			$diff = round($diff / 60);
 			
 			if ($diff < 24) {
-				return $lang['wb_relative_hour'];
+				return lang('wb_relative_hour');
 			}
 			$diff = round($diff / 24);
 			
 			if ($diff < 7) {
-				return $lang['wb_relative_day'];
+				return lang('wb_relative_day');
 			}
 			$diff = round($diff / 7);
 			
 			if ($diff < 4) {
-				return $lang['wb_relative_week'];
+				return lang('wb_relative_week');
 			}
 			
 			return "on " . date("F j, Y", strtotime($valid_date));
 		} else {
 			if ($diff > -60) {
-				return $lang['wb_relative_in_second'];
+				return lang('wb_relative_in_second');
 			}
 			$diff = round($diff / 60);
 			
 			if ($diff > -60) {
-				return $lang['wb_relative_in_minute'];
+				return lang('wb_relative_in_minute');
 			}
 			$diff = round($diff / 60);
 			
 			if ($diff > -24) {
-				return $lang['wb_relative_in_hour'];
+				return lang('wb_relative_in_hour');
 			}
 			$diff = round($diff / 24);
 			
 			if ($diff > -7) {
-				return $lang['wb_relative_in_day'];
+				return lang('wb_relative_in_day');
 			}
 			$diff = round($diff / 7);
 			
 			if ($diff > -4) {
-				return $lang['wb_relative_in_week'];
+				return lang('wb_relative_in_week');
 			}	
 			
-			return $lang['wb_relative_date'];
+			return lang('wb_relative_date');
 		}
 	}
 
@@ -118,17 +118,18 @@ class Wb_relative_date{
 	public function usage()
 	{
 		ob_start(); 
-		?>
-		
-		Given a date (preferably a timestamp) it returns a relative date (e.g. 2 days ago).
-		
-		Example Usage
-		-------------
-		{exp:wb_relative_date}{entry_date}{/exp:wb_relative_date}
-		
-		<?php
-		$buffer = ob_get_contents();
-		ob_end_clean(); 
-		return $buffer;
-	}
+
+?>
+
+Given a date (preferably a timestamp) it returns a relative date (e.g. 2 days ago).
+
+Example Usage
+-------------
+{exp:wb_relative_date}{entry_date}{/exp:wb_relative_date}
+
+<?php
+$buffer = ob_get_contents();
+ob_end_clean();
+return $buffer;
+}
 }
