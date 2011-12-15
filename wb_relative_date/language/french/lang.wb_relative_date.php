@@ -1,6 +1,6 @@
 <?php
 
-setlocale(LC_ALL,'fr-FR');
+setlocale(LC_TIME,'fr_FR');
 
 $lang = array(
 'wb_relative_second' => 'il y a ' . $diff . ' second' . $this->_plural($diff),
@@ -15,7 +15,7 @@ $lang = array(
 'wb_relative_in_day' => 'dans ' . -$diff . ' jour' . $this->_plural($diff),
 'wb_relative_in_week' => 'dans ' . -$diff . ' semaine' . $this->_plural($diff),
 
-'wb_relative_date' => 'le ' . date('j F Y', strtotime($valid_date)),
+'wb_relative_date' => 'le ' . strftime('%e %B %Y', strtotime($valid_date)),
 
 // END
 ''=>''
