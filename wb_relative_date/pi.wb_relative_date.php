@@ -2,7 +2,7 @@
 
 $plugin_info = array(
 	'pi_name' => 'WB Relative Date',
-	'pi_version' => '1.0.1',
+	'pi_version' => '1.0.2',
 	'pi_author' => 'Wes Baker',
 	'pi_author_url' => 'http://wesbaker.com',
 	'pi_description' => 'Convert normal dates into relative dates (e.g. about 2 days ago)',
@@ -15,7 +15,7 @@ $plugin_info = array(
  * Get a relative date
  *
  * @package			WBRelativeDate
- * @version			1.0.1
+ * @version			1.0.2
  * @author			Wes Baker <http://wesbaker.com>
  * @license 		Creative Commons Attribution Non-Commercial Share Alike
  */
@@ -62,7 +62,7 @@ class Wb_relative_date{
 				return "about " . $diff . " week" . $this->_plural($diff) . " ago";
 			}
 			
-			return "on " . date("F j, Y", strtotime($valid_date));
+			return "on " . date("F j, Y", $valid_date);
 		} else {
 			if ($diff > -60) {
 				return "in " . -$diff . " second" . $this->_plural($diff);
@@ -88,7 +88,7 @@ class Wb_relative_date{
 				return "in " . -$diff . " week" . $this->_plural($diff);
 			}	
 			
-			return "on " . date("F j, Y", strtotime($valid_date));
+			return "on " . date("F j, Y", $valid_date);
 		}
 	}
 
